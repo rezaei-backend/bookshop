@@ -5,6 +5,9 @@ define("BASE_URL", "http://localhost/bookshop/");
 function url($url){
     return trim(BASE_URL," /"). "/".trim ($url,"/");
 }
+function url_get($url , $id){
+    return trim(BASE_URL," /"). "/".trim ($url,"/")."?id=$id";
+}
 
 function assets($path){
     return trim(BASE_URL," /"). "/public". "/".trim ($path,"/");

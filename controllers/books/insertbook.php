@@ -14,8 +14,6 @@ if (checkmethod()) {
     $query="INSERT INTO `books` (`title`, `image`, `count`, `row`, `writer`, `genre`, `status`) VALUES (? , ? , ? , ? , ? , ? , ?)";
     $stm=$conn->prepare($query);
     $stm->execute([$title , $image , $count , $row , $writer , $genre , $status ]);
-
-
      redirect("view/books/index.php");
     
 }

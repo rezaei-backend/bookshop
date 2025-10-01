@@ -85,57 +85,58 @@ include_once "../layouts/sidebar.php";
                                     </div>
                                 </div>
                             </div>
-                            
-    <div class="modal fade" id="editBookModal<?= $book['id'] ?>" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Edit Book <?= $book['title'] ?></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="editBookForm" class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Title</label>
-                            <input value="<?= $book['title'] ?>" type="text" class="form-control" >
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Writer</label>
-                            <input type="text" class="form-control" value="<?= $book['writer'] ?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Genre</label>
-                            <input type="text" class="form-control" value="<?= $book['genre'] ?>">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Count</label>
-                            <input type="number" class="form-control" value="<?= $book['count'] ?>" min="0">
-                        </div>
-                        <div class="col-md-3">
-                            <label class="form-label">Row</label>
-                            <input type="text" class="form-control" value="<?= $book['row'] ?>">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Image URL</label>
-                            <input type="url" class="form-control" value="assets/img/placeholder.png">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Status</label>
-                            <select class="form-select">
-                                <option value="1" selected>Active</option>
-                                <option value="0">Inactive</option>
-                            </select>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="saveEditBook">Update</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
+                            <div class="modal fade" id="editBookModal<?= $book['id'] ?>" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Edit Book <?= $book['title'] ?></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="post" action="<?= url_get("controllers/books/update.php", $book['id']) ?>" class="row g-3" enctype="multipart/form-data">
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Title</label>
+                                                    <input name="title" value="<?= $book['title'] ?>" type="text" class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Writer</label>
+                                                    <input type="text" class="form-control" name="writer" value="<?= $book['writer'] ?>">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Genre</label>
+                                                    <input type="text" class="form-control" name="genre" value="<?= $book['genre'] ?>">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">Count</label>
+                                                    <input type="number" class="form-control" name="count" value="<?= $book['count'] ?>" min="0">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label">Row</label>
+                                                    <input name="row" type="text" class="form-control" value="<?= $book['row'] ?>">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Image</label>
+                                                    <input type="file" name="image" class="form-control">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Status</label>
+                                                    <select name="status" class="form-select">
+                                                        <option value="1" selected>Active</option>
+                                                        <option value="0">Inactive</option>
+                                                    </select>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancel</button>
+                                                    <input type="submit" value="save" class="btn btn-primary" id="saveEditBook">
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         <?php
                         }
                         ?>

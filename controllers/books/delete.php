@@ -10,5 +10,5 @@ if (isset($id) ) {
 }
 else{
      redirect("view/books/index.php");
-
+     
 }
