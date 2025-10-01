@@ -21,6 +21,14 @@ function redirect($url){
     exit();
 }
 
+function checkmethod(){
+    if ($_SERVER['REQUEST_METHOD']=="POST") {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 
 
